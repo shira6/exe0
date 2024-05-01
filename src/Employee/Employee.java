@@ -8,7 +8,7 @@ public abstract class Employee {
     private int ID;
 
     /**
-     * initializes the Employee.Employee with the name "plony almony" and 0 for the number verbals
+     * initializes the Employee with the name "plony almony" and 0 for the number verbals
      */
     public Employee() {
         this.firstName = "plony";
@@ -17,9 +17,13 @@ public abstract class Employee {
     }
 
     /**
-     * initializes the Employee.Employee with the corresponding parameters
+     * initializes the Employee with the corresponding parameters
      */
     public Employee(String firstName, String lastName, int ID) {
+       if (firstName.isBlank()||lastName.isBlank())
+           throw new IllegalArgumentException("names can't be blank");
+       if(ID < 0)
+           throw new IllegalArgumentException("ID can't be less then 0");
         this.firstName = firstName;
         this.lastName = lastName;
         this.ID = ID;
@@ -30,6 +34,8 @@ public abstract class Employee {
     }
 
     public void setFirstName(String firstName) {
+        if (firstName.isBlank())
+            throw new IllegalArgumentException("names can't be blank");
         this.firstName = firstName;
     }
 
@@ -37,6 +43,8 @@ public abstract class Employee {
         return lastName;
     }
     public void setLastName(String lastName) {
+        if (lastName.isBlank())
+            throw new IllegalArgumentException("names can't be blank");
         this.lastName = lastName;
     }
 
@@ -44,6 +52,8 @@ public abstract class Employee {
         return ID;
     }
     public void setID(int ID) {
+        if(ID < 0)
+            throw new IllegalArgumentException("ID can't be less then 0");
         this.ID = ID;
     }
 
@@ -71,8 +81,8 @@ public abstract class Employee {
     @Override
     public String toString() {
         return "Employee.Employee: \n" +
-                "firstName = '" + firstName + '\n' +
-                "lastName = '" + lastName + '\n' +
+                "firstName = " + firstName + '\n' +
+                "lastName = " + lastName + '\n' +
                 "ID = " + ID + '\n';
     }
 

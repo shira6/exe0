@@ -16,16 +16,20 @@ public  class HourlyEmployee extends Employee{
     }
 
     /**
-     * initializes the Employee.Employee with the corresponding parameters
+     * initializes the Employee with the corresponding parameters
      */
     public HourlyEmployee(String firstName, String lastName, int ID, int hours, float wage) {
         super(firstName, lastName, ID);
+        if(hours < 0)
+            throw new IllegalArgumentException("hours can't be less then 0");
+        if(wage < 0)
+            throw new IllegalArgumentException("wage can't be less then 0");
         this.hours = hours;
         this.wage = wage;
     }
 
     /**
-     * initializes the Employee.Employee with the name "plony almony" and 0 for the number verbals
+     * initializes the Employee with the name "plony almony" and 0 for the number verbals
      */
     public HourlyEmployee() {
         super();
@@ -38,6 +42,8 @@ public  class HourlyEmployee extends Employee{
     }
 
     public void setHours(int hours) {
+        if(hours < 0)
+            throw new IllegalArgumentException("hours can't be less then 0");
         this.hours = hours;
     }
 
@@ -46,6 +52,8 @@ public  class HourlyEmployee extends Employee{
     }
 
     public void setWage(float wage) {
+    if(wage < 0)
+            throw new IllegalArgumentException("wage can't be less then 0");
         this.wage = wage;
     }
 
@@ -56,8 +64,8 @@ public  class HourlyEmployee extends Employee{
     @Override
     public String toString() {
         return "Hourly" + super.toString() +
-                "hours=" + hours + '\n' +
-                "wage=" + wage + '\n';
+                "hours =" + hours + '\n' +
+                "wage =" + wage + '\n';
     }
 
     /**
