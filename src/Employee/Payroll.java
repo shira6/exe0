@@ -8,7 +8,7 @@ public class Payroll {
         employees[2]= new BasePlusCommissionEmployee("moshe","israeli",967673452,45678,10,40);
          for(int i = 0; i<3;i++){
              System.out.println(employees[i]);
-             System.out.println("salary = " + employees[i].earnings());
+             System.out.println("salary = " + employees[i].earnings() + '\n');
          }
     }
 }
